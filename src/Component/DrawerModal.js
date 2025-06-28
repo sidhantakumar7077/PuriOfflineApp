@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Modal, TouchableWithoutFeedback, TouchableOpacity, Alert, Image, Pressable, TextInput, ToastAndroid } from 'react-native'
+import { StyleSheet, Text, View, Modal, TouchableWithoutFeedback, TouchableOpacity, Share, Platform, Image, Pressable, TextInput, ToastAndroid } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -41,6 +41,21 @@ const DrawerModal = ({ visible, onClose, loadLanguageForHomePage, rathaYatraSect
             loadLanguageForHomePage(); // Reload the language after saving
         } catch (error) {
             // console.log('Error saving language to storage:', error);
+        }
+    };
+
+    const shareApp = async () => {
+        const androidUrl = 'https://play.google.com/store/apps/details?id=com.shreejagannatha.dham&pli=1';
+        const iosUrl = 'https://apps.apple.com/in/app/shree-jagannatha-dham/id6745084606';
+
+        const url = Platform.OS === 'ios' ? iosUrl : androidUrl;
+
+        try {
+            await Share.share({
+                message: `Check out the Shree Jagannatha Dham app:\n${url}`,
+            });
+        } catch (error) {
+            console.error('Error sharing app:', error);
         }
     };
 
@@ -96,9 +111,20 @@ const DrawerModal = ({ visible, onClose, loadLanguageForHomePage, rathaYatraSect
                                 </View>
                                 <Text style={styles.drawerLable}>{selectedLanguage === "Odia" ? 'ଆପ୍ ନିୟମ' : 'Privacy & Policy'}</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={[styles.drawerCell, { marginTop: 0.5 }]}>
+                            {/* App Share section */}
+                            <TouchableOpacity
+                                style={[styles.drawerCell, { marginTop: 0.5 }]}
+                                onPress={async () => {
+                                    await shareApp();
+                                    onClose();
+                                }}
+                            >
+                                <View style={{ width: 40, height: 40, borderRadius: 20, justifyContent: 'center', alignItems: 'center' }}>
+                                    <FontAwesome5 name="share-alt" size={22} color="#341551" />
+                                </View>
+                                <Text style={styles.drawerLable}>{selectedLanguage === "Odia" ? 'ଆପ୍ ଶେୟାର୍ କରନ୍ତୁ' : 'Share App'}</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={[styles.drawerCell, { marginTop: 0 }]}>
+                            <TouchableOpacity style={[styles.drawerCell, { marginTop: 0.5 }]}>
                             </TouchableOpacity>
                             <TouchableOpacity style={[styles.drawerCell, { marginTop: 0 }]}>
                             </TouchableOpacity>
