@@ -1323,6 +1323,10 @@ const Index = () => {
     }
   );
 
+  const openMap = (url) => {
+    Linking.openURL(url);
+  };
+
   const linkPhone = (number) => {
     const phoneNumber = `tel:${number}`;
     Linking.openURL(phoneNumber).catch(err => console.warn("Failed to open dialer:", err));

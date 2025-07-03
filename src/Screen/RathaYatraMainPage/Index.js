@@ -713,7 +713,7 @@ const Index = () => {
             </ScrollView>
 
             {/* Chat BOT */}
-            <TouchableOpacity
+            {/* <TouchableOpacity
                 style={{
                     width: 100,
                     height: 100,
@@ -733,7 +733,7 @@ const Index = () => {
                     loop
                     style={{ width: '100%', height: '100%' }}
                 />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             {/* Ratha Yatra Live Modal */}
             <Modal
