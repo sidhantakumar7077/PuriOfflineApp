@@ -318,6 +318,7 @@ const Index = () => {
     };
 
     const [rathaYatraLiveVideoSectionVisible, setRathaYatraLiveVideoSectionVisible] = useState(false);
+    const [chatBotActive, setChatBotActive] = useState('deactive');
 
     const getRathaYatraLiveVideo = async () => {
         try {
@@ -331,6 +332,7 @@ const Index = () => {
             const result = await response.json();
             if (result.status) {
                 setRathaYatraLiveVideoSectionVisible(result.data.live_video === "active");
+                setChatBotActive(result.data.livechat === "active" ? 'active' : 'deactive');
             } else {
                 console.log('API responded with status false:', result.message);
                 setRathaYatraLiveVideoSectionVisible(false);
@@ -344,7 +346,7 @@ const Index = () => {
     useEffect(() => {
         if (isFocused) {
             loadLanguage();
-            // getRathaYatraLiveVideo();
+            getRathaYatraLiveVideo();
         }
     }, [isFocused, selectedLanguage]);
 
@@ -713,27 +715,29 @@ const Index = () => {
             </ScrollView>
 
             {/* Chat BOT */}
-            {/* <TouchableOpacity
-                style={{
-                    width: 100,
-                    height: 100,
-                    backgroundColor: 'transparent',
-                    position: 'absolute',
-                    right: 0,
-                    bottom: 10,
-                    borderRadius: 30,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}
-                onPress={() => navigation.navigate('ChatbotScreen')}
-            >
-                <LottieView
-                    source={require('../../assets/GIF/chatBot1.json')}
-                    autoPlay
-                    loop
-                    style={{ width: '100%', height: '100%' }}
-                />
-            </TouchableOpacity> */}
+            {chatBotActive === 'active' &&
+                <TouchableOpacity
+                    style={{
+                        width: 100,
+                        height: 100,
+                        backgroundColor: 'transparent',
+                        position: 'absolute',
+                        right: 0,
+                        bottom: 10,
+                        borderRadius: 30,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
+                    onPress={() => navigation.navigate('ChatbotScreen')}
+                >
+                    <LottieView
+                        source={require('../../assets/GIF/chatBot1.json')}
+                        autoPlay
+                        loop
+                        style={{ width: '100%', height: '100%' }}
+                    />
+                </TouchableOpacity>
+            }
 
             {/* Ratha Yatra Live Modal */}
             <Modal
