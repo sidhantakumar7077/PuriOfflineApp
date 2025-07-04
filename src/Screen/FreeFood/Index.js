@@ -1,16 +1,116 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Linking, ScrollView, Animated, Image, ActivityIndicator, RefreshControl } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TextInput, TouchableOpacity, Linking, ScrollView, Animated, Image, ActivityIndicator, RefreshControl } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation, useIsFocused } from '@react-navigation/native';
-import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from 'moment';
 
 const Index = () => {
 
   const english_data = [
+    {
+      "id": "002",
+      "organisationname": "Reliance",
+      "location": "JBPC",
+      "map": "https://maps.app.goo.gl/MZHKm9ZU4DLPKdSw5",
+      "date": "Bahuda"
+    },
+    {
+      "id": "006",
+      "organisationname": " Vedant ",
+      "location": "JBPC",
+      "map": "https://maps.app.goo.gl/MZHKm9ZU4DLPKdSw5",
+      "date": "Bahuda"
+    },
+    {
+      "id": "014",
+      "organisationname": "Reliance Foundation",
+      "location": "Bholanath School",
+      "map": "https://maps.app.goo.gl/N7CzsLApDDeQFp1P8",
+      "date": "Bahuda"
+    },
+    {
+      "id": "017",
+      "organisationname": "Jindal",
+      "location": "Puri Bus Stand",
+      "map": "https://maps.app.goo.gl/U6ErBJgsV6jxasj76",
+      "date": "Bahuda"
+    },
+    {
+      "id": "020",
+      "organisationname": "Reliance Foundation",
+      "location": "Puri Bus Stand",
+      "map": "https://maps.app.goo.gl/94QctXZTGZgNgnKn9",
+      "date": "Bahuda"
+    },
+    {
+      "id": "024",
+      "organisationname": "Vedant",
+      "location": "Puri Bus Stand, Near Tarini Temple",
+      "map": "https://maps.app.goo.gl/eMtP7GyuuCtWZBYY8",
+      "date": "Bahuda"
+    },
+    {
+      "id": "027",
+      "organisationname": "JSPL",
+      "location": "Railway station",
+      "map": "https://maps.app.goo.gl/8qpqYNpmNqTSuyyw8",
+      "date": "Bahuda"
+    },
+    {
+      "id": "033",
+      "organisationname": "Atharnala Unayan Committee",
+      "location": "Atharnala",
+      "map": "https://maps.app.goo.gl/dMA2TM2qyythFy3PA",
+      "date": "Bahuda"
+    },
+    {
+      "id": "03",
+      "organisationname": "Reliance",
+      "location": "JBPC",
+      "map": "https://maps.app.goo.gl/MZHKm9ZU4DLPKdSw5",
+      "date": "Sunabesha"
+    },
+    {
+      "id": "015",
+      "organisationname": "Reliance Foundation",
+      "location": "Bholanath School",
+      "map": "https://maps.app.goo.gl/N7CzsLApDDeQFp1P8",
+      "date": "Sunabesha"
+    },
+    {
+      "id": "018",
+      "organisationname": "Jindal",
+      "location": "Puri Bus Stand",
+      "map": "https://maps.app.goo.gl/U6ErBJgsV6jxasj76",
+      "date": "Sunabesha"
+    },
+    {
+      "id": "021",
+      "organisationname": "Reliance Foundation",
+      "location": "Puri Bus Stand",
+      "map": "https://maps.app.goo.gl/94QctXZTGZgNgnKn9",
+      "date": "Sunabesha"
+    },
+    {
+      "id": "028",
+      "organisationname": "JSPL",
+      "location": "Railway station",
+      "map": "https://maps.app.goo.gl/8qpqYNpmNqTSuyyw8",
+      "date": "Sunabesha"
+    },
+    {
+      "id": "034",
+      "organisationname": "Atharnala Unayan Committee",
+      "location": "Atharnala",
+      "map": "https://maps.app.goo.gl/dMA2TM2qyythFy3PA",
+      "date": "Sunabesha"
+    },
+
+
+
     {
       "id": "1",
       "organisationname": "A5S",
@@ -21,7 +121,7 @@ const Index = () => {
       "id": "2",
       "organisationname": "ADHIKAR FOUNDATION",
       "location": "BAGHAAKHADA MATHA, BADASANKHA",
-      "date": "Ratha Yatra to Suna Besha"
+      "date": "Ratha Yatra to Sunabesha"
     },
     {
       "id": "3",
@@ -1933,6 +2033,28 @@ const Index = () => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
   const [selectedLanguage, setSelectedLanguage] = useState(null);
+  const [searchText, setSearchText] = useState('');
+
+  const handleSearch = (text) => {
+    setSearchText(text);
+    const data = english_data;
+
+    const filtered = data.filter(item =>
+      item.organisationname.toLowerCase().includes(text.toLowerCase()) ||
+      item.location.toLowerCase().includes(text.toLowerCase())
+    );
+    setAllFreeFood(filtered);
+  };
+
+  const handleClear = () => {
+    setSpinner(true);
+    setSearchText('');
+    setTimeout(() => {
+      const data = english_data;
+      setAllFreeFood(data);
+      setSpinner(false);
+    }, 500);
+  };
 
   const loadLanguage = async () => {
     try {
@@ -2090,34 +2212,42 @@ const Index = () => {
           </View>
         </View>
 
-        {/* <TouchableOpacity
-          onPress={() => setShowDatePicker(true)}
-          style={{
-            backgroundColor: '#ff9900',
-            paddingVertical: 10,
-            borderRadius: 8,
-            alignItems: 'center',
-            marginVertical: 20,
-            width: '90%',
-            alignSelf: 'center'
-          }}
-        >
-          <Text style={{ color: '#fff', fontSize: 14 }}>
-            {moment(selectedDate).format('dddd, MMM D, YYYY')}
-          </Text>
-        </TouchableOpacity>
-
-        {showDatePicker && (
-          <DateTimePicker
-            value={selectedDate}
-            mode="date"
-            display={Platform.OS === 'ios' ? 'inline' : 'default'}
-            onChange={(event, date) => {
-              setShowDatePicker(false);
-              if (date) setSelectedDate(date);
+        {/* Search Box */}
+        <View style={{ paddingHorizontal: 16, marginTop: 20, marginBottom: 6 }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              backgroundColor: '#fff',
+              borderColor: '#ddd',
+              borderWidth: 1,
+              borderRadius: 10,
+              paddingHorizontal: 10,
+              elevation: 1,
             }}
-          />
-        )} */}
+          >
+            <Ionicons name="search" size={20} color="#666" style={{ marginRight: 8 }} />
+
+            <TextInput
+              value={searchText}
+              placeholder={'Enter Food Name...'}
+              placeholderTextColor="#aaa"
+              style={{
+                flex: 1,
+                height: 44,
+                fontSize: 15,
+                color: '#000',
+                fontFamily: 'FiraSans-Regular',
+              }}
+              onChangeText={handleSearch}
+            />
+            {searchText !== '' && (
+              <TouchableOpacity onPress={handleClear} style={{ marginLeft: 8 }}>
+                <Ionicons name="close-circle" size={20} color="#999" />
+              </TouchableOpacity>
+            )}
+          </View>
+        </View>
 
         {spinner ? (
           <View style={{ flex: 1, paddingVertical: 80, alignItems: 'center', justifyContent: 'center' }}>
