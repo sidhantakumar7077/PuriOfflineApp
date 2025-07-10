@@ -1559,42 +1559,42 @@ const Index = () => {
                 )}
 
                 {/* Ratha Yatra Banner */}
-                {/* {rathaYatraSectionActive && */}
-                <View style={{ height: 250, marginVertical: 10 }}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('RathaYatraMainPage')}
-                        style={{
-                            width: width * 0.9,
-                            height: 250,
-                            alignSelf: 'center',
-                            borderRadius: 20,
-                            overflow: 'hidden', // this is required!
-                            marginBottom: 10,
-                            backgroundColor: '#000', // Fallback color in case video fails to load
-                        }}
-                    >
-                        {selectedLanguage === 'Odia' ?
-                            <Video
-                                source={require('../../assets/offlineData/rathasectionodia.mp4')}
-                                style={{ width: '100%', height: '100%', borderRadius: 30 }}
-                                resizeMode="cover"
-                                paused={false}
-                                controls={false}
-                                repeat
-                            />
-                            :
-                            <Video
-                                source={require('../../assets/offlineData/rathasectionenglish.mp4')}
-                                style={{ width: '100%', height: '100%', borderRadius: 30 }}
-                                resizeMode="cover"
-                                paused={false}
-                                controls={false}
-                                repeat
-                            />
-                        }
-                    </TouchableOpacity>
-                    {/* <Animated.View style={{ opacity, borderRadius: 10, marginTop: 10 }}> */}
-                    {/* {TempleBanner.map((item, index) => (
+                {rathaYatraSectionActive &&
+                    <View style={{ height: 250, marginVertical: 10 }}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('RathaYatraMainPage')}
+                            style={{
+                                width: width * 0.9,
+                                height: 250,
+                                alignSelf: 'center',
+                                borderRadius: 20,
+                                overflow: 'hidden', // this is required!
+                                marginBottom: 10,
+                                backgroundColor: '#000', // Fallback color in case video fails to load
+                            }}
+                        >
+                            {selectedLanguage === 'Odia' ?
+                                <Video
+                                    source={require('../../assets/offlineData/rathasectionodia.mp4')}
+                                    style={{ width: '100%', height: '100%', borderRadius: 30 }}
+                                    resizeMode="cover"
+                                    paused={false}
+                                    controls={false}
+                                    repeat
+                                />
+                                :
+                                <Video
+                                    source={require('../../assets/offlineData/rathasectionenglish.mp4')}
+                                    style={{ width: '100%', height: '100%', borderRadius: 30 }}
+                                    resizeMode="cover"
+                                    paused={false}
+                                    controls={false}
+                                    repeat
+                                />
+                            }
+                        </TouchableOpacity>
+                        {/* <Animated.View style={{ opacity, borderRadius: 10, marginTop: 10 }}> */}
+                        {/* {TempleBanner.map((item, index) => (
                                 <LinearGradient
                                     colors={['#F06292', '#FFA726']}
                                     start={{ x: 0, y: 0 }}
@@ -1614,9 +1614,9 @@ const Index = () => {
                                     </TouchableOpacity>
                                 </LinearGradient>
                             ))} */}
-                    {/* </Animated.View> */}
-                </View>
-                {/* } */}
+                        {/* </Animated.View> */}
+                    </View>
+                }
 
                 {/* Live Broadcast Section */}
                 {/* <View style={styles.liveCard}>

@@ -91,14 +91,14 @@ const DrawerModal = ({ visible, onClose, loadLanguageForHomePage, rathaYatraSect
                                 </View>
                                 <Text style={styles.drawerLable}>{selectedLanguage === "Odia" ? 'ମୁଖ୍ୟ ପୃଷ୍ଠା' : 'Home'}</Text>
                             </TouchableOpacity>
-                            {/* {rathaYatraSectionActive && */}
-                            <TouchableOpacity style={styles.drawerCell} onPress={() => { navigation.navigate('RathaYatraMainPage'), onClose() }}>
-                                <View style={{ width: 40, height: 40, borderRadius: 20, justifyContent: 'center', alignItems: 'center' }}>
-                                    <FontAwesome5 name="calendar-alt" size={22} color="#341551" />
-                                </View>
-                                <Text style={styles.drawerLable}>{selectedLanguage === "Odia" ? 'ରଥଯାତ୍ରା' : 'Ratha Yatra'}</Text>
-                            </TouchableOpacity>
-                            {/* } */}
+                            {rathaYatraSectionActive &&
+                                <TouchableOpacity style={styles.drawerCell} onPress={() => { navigation.navigate('RathaYatraMainPage'), onClose() }}>
+                                    <View style={{ width: 40, height: 40, borderRadius: 20, justifyContent: 'center', alignItems: 'center' }}>
+                                        <FontAwesome5 name="calendar-alt" size={22} color="#341551" />
+                                    </View>
+                                    <Text style={styles.drawerLable}>{selectedLanguage === "Odia" ? 'ରଥଯାତ୍ରା' : 'Ratha Yatra'}</Text>
+                                </TouchableOpacity>
+                            }
                             <TouchableOpacity style={[styles.drawerCell, { marginTop: 0.5 }]} onPress={() => { setLanguageModalVisible(true), onClose() }}>
                                 <View style={{ width: 40, height: 40, borderRadius: 20, justifyContent: 'center', alignItems: 'center' }}>
                                     <Ionicons name="language" size={22} color="#341551" />
