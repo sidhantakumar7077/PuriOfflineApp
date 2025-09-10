@@ -27,13 +27,13 @@ const Index = () => {
                         alignSelf: 'center',
                     }}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <Image source={require("../../assets/image/SJDlogo.png")} style={{
-                                width: 70,
-                                height: 70,
+                            <Image source={require("../../assets/image/mainLogo.png")} style={{
+                                width: 80,
+                                height: 80,
                                 resizeMode: "contain",
                             }} />
                         </View>
-                        <TouchableOpacity onPress={() => navigation.goBack()} style={{ alignItems: 'center', justifyContent: 'center', backgroundColor: '#c91306', padding: 7, borderRadius: 50, marginRight: 7 }}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Home_2')} style={{ alignItems: 'center', justifyContent: 'center', backgroundColor: '#c91306', padding: 7, borderRadius: 50, marginRight: 7 }}>
                             <Ionicons name="home-sharp" size={18} color="#fff" />
                         </TouchableOpacity>
                     </View>
@@ -54,8 +54,7 @@ const Index = () => {
                         <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                             <View style={{ width: '49%' }}>
                                 <View style={{ flexDirection: 'column', alignItems: 'center' }}>
-                                    <TouchableOpacity onPress={() => navigation.navigate('ContentList')} style={{ backgroundColor: '#f8edfc', borderRadius: 100, padding: 12 }}>
-                                        {/* <Entypo name="mic" size={20} color="#dd4c2f" /> */}
+                                    <TouchableOpacity style={{ backgroundColor: '#f8edfc', borderRadius: 100, padding: 12 }}>
                                         <Image source={require('../../assets/image/podcast34.png')} style={{ width: 27, height: 27 }} />
                                     </TouchableOpacity>
                                     <Text style={{ fontFamily: 'FiraSans-Medium', fontSize: 16, color: '#dd4c2f' }}>Podcast</Text>

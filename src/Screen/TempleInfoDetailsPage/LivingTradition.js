@@ -21,7 +21,7 @@ const LivingTradition = () => {
                     <LinearGradient colors={["rgba(0,0,0,0.5)", "transparent"]} style={styles.overlay} />
                     <View style={styles.header}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <Image source={require("../../assets/image/SJDlogo.png")} style={styles.logo} />
+                            <Image source={require("../../assets/image/mainLogo.png")} style={styles.logo} />
                         </View>
                         <TouchableOpacity onPress={() => navigation.goBack()} style={{ alignItems: 'center', justifyContent: 'center', backgroundColor: '#c91306', padding: 7, borderRadius: 50 }}>
                             <Ionicons name="home-sharp" size={18} color="#fff" />
