@@ -1315,6 +1315,8 @@ const Index = () => {
                     return today.isBetween(start, end, undefined, '[]'); // [] = inclusive
                 });
 
+                // console.log("Today's Notices:", todaysNotices);
+
                 if (todaysNotices.length > 0) {
                     // console.log("Today's Notices:", todaysNotices);
                     setNotices(todaysNotices);
@@ -1360,32 +1362,35 @@ const Index = () => {
         getNoticeForToday();
     }, []);
 
-    const renderItem = ({ item }) => (
-        <View
-            style={{
-                backgroundColor: '#F9FAFB',
-                borderRadius: 12,
-                padding: 15,
-                marginBottom: 12,
-                shadowColor: '#000',
-                shadowOpacity: 0.1,
-                shadowRadius: 5,
-                elevation: 3,
-            }}
-        >
-            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#2D3748', marginBottom: 5 }}>
-                {selectedLanguage === 'Odia' ? item.notice_name : item.notice_name_english}
-            </Text>
-            {/* {item.notice_descp ? (
-                <Text style={{ fontSize: 14, color: '#4A5568', marginBottom: 8 }}>
-                    {item.notice_descp}
-                </Text>
-            ) : null} */}
-            {/* <Text style={{ fontSize: 13, color: '#718096', fontStyle: 'italic' }}>
-                📅 {moment(item.notice_date).format('MMMM Do, YYYY')}
-            </Text> */}
-        </View>
-    );
+    const renderItem = ({ item }) => {
+        // Choose text based on language
+        const noticeText =
+            selectedLanguage === 'Odia'
+                ? item.notice_name
+                : item.notice_name_english;
+
+        // Build full image URL if backend only returns path
+        const imageSource =
+            selectedLanguage === 'Odia'
+                ? item.odia_notice_photo
+                : item.english_notice_photo;
+
+        return (
+            <View style={styles.noticeItem}>
+                {/* Image (only if exists) */}
+                {imageSource && (
+                    <Image
+                        source={{ uri: imageSource }}
+                        style={styles.noticeImage}
+                        resizeMode="contain"
+                    />
+                )}
+
+                {/* Text */}
+                <Text style={styles.noticeText}>{noticeText}</Text>
+            </View>
+        );
+    };
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
@@ -2897,6 +2902,24 @@ const styles = StyleSheet.create({
         fontFamily: 'Lora-Regular',
         color: '#fff',
     },
+    noticeItem: {
+        marginBottom: 12,
+        borderRadius: 10,
+        backgroundColor: '#f5f3ff',
+        padding: 10,
+    },
+    noticeImage: {
+        width: '100%',
+        height: 200,
+        borderRadius: 8,
+        marginBottom: 8,
+        backgroundColor: '#e5e7eb',
+    },
+    noticeText: {
+        fontSize: 14,
+        color: '#341551',
+    },
+
 });
 
 export default Index;
