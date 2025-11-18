@@ -22,7 +22,7 @@ const Index = () => {
     const [selectedLanguage, setSelectedLanguage] = useState('');
     const [isDescModalVisible, setIsDescModalVisible] = useState(false);
     const [niti, setNiti] = useState(null);
-    const [selectedTab, setSelectedTab] = useState('previous'); // 'previous' or 'today'
+    const [selectedTab, setSelectedTab] = useState('today'); // 'previous' or 'today'
 
     // NEW: Previous (yesterday) data states
     const [prevNiti, setPrevNiti] = useState([]);
@@ -219,9 +219,9 @@ const Index = () => {
                         {/* Right-side icons */}
                         <View style={{ marginTop: 5, flexDirection: 'row', alignItems: 'center', gap: 15 }}>
                             {getIcon()}
-                            <TouchableOpacity onPress={() => showDescModal(item)}>
+                            {/* <TouchableOpacity onPress={() => showDescModal(item)}>
                                 <AntDesign name="infocirlce" size={20} color="#999" />
-                            </TouchableOpacity>
+                            </TouchableOpacity> */}
                         </View>
                     </View>
                 );
