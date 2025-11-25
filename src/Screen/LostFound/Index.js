@@ -15,90 +15,90 @@ const Index = () => {
       "long": "85.81911426522505",
       "photo": require('../../assets/offlineData/lostandfound/SinghadwaraInformationCenter.jpeg')
     },
-    {
-      "id": "1",
-      "locationname": "Lions Gate",
-      "lat": "19.804543563698207",
-      "long": "85.81930583037438",
-      "photo": require('../../assets/offlineData/lostandfound/LionsGate.jpeg')
-    },
-    {
-      "id": "2",
-      "locationname": "Gundicha Ghara Muktaash Rangamanch",
-      "lat": "19.81593451772561",
-      "long": "85.83876570554955",
-      "photo": require('../../assets/offlineData/lostandfound/GundichaGharaMuktaashRangamanch.jpeg')
-    },
-    {
-      "id": "3",
-      "locationname": "Jagannatha Ballav Matha",
-      "lat": "19.80988059975975",
-      "long": "85.82438446767046",
-      "photo": require('../../assets/offlineData/lostandfound/JagannathaBallavMatha.jpeg')
-    },
-    {
-      "id": "4",
-      "locationname": "Balagandi Chack",
-      "lat": "19.8130796272601",
-      "long": "85.8301243062821",
-      "photo": require('../../assets/offlineData/lostandfound/BalagandiChack.jpeg')
-    },
-    {
-      "id": "5",
-      "locationname": "Badasankha Chack",
-      "lat": "19.814054397780385",
-      "long": "85.83284977285376",
-      "photo": require('../../assets/offlineData/lostandfound/BadasankhaChack.jpeg')
-    },
-    {
-      "id": "6",
-      "locationname": "Talabania Parking",
-      "lat": "19.81086780917331",
-      "long": "85.84687364164495",
-      "photo": require('../../assets/offlineData/lostandfound/TalabaniaParking.jpeg')
-    },
-    {
-      "id": "7",
-      "locationname": "Malatipata Pur Parking",
-      "lat": "19.865748024997256",
-      "long": "85.83044080050104",
-      "photo": require('../../assets/offlineData/lostandfound/MalatipataPurParking.jpeg')
-    },
-    {
-      "id": "8",
-      "locationname": "Digabareni Chack",
-      "lat": "19.795971198786614",
-      "long": "85.82568939976444",
-      "photo": require('../../assets/offlineData/lostandfound/DigabareniChack.jpeg')
-    },
-    {
-      "id": "9",
-      "locationname": "Panthanivas",
-      "lat": "19.798644635864633",
-      "long": "85.83215785723448",
-      "photo": require('../../assets/offlineData/lostandfound/Panthanivas.jpeg')
-    },
-    {
-      "id": "10",
-      "locationname": "Subas Bose Chack, Near Tourist Office",
-      "lat": "19.799860639032833",
-      "long": "85.8314976791313",
-      "photo": require('../../assets/offlineData/lostandfound/SubasBoseChackNearTouristOffice.jpeg')
-    },
-    {
-      "id": "11",
-      "locationname": "Shree Danda",
-      "lat": "19.81185481171331",
-      "long": "85.82242502871516",
-      "photo": require('../../assets/offlineData/lostandfound/ShreeDanda.jpeg')
-    },
-    {
-      "id": "12",
-      "locationname": "Utkal Balasharm CWC control Room",
-      "lat": "19.81354182174009",
-      "long": "85.82708392075733",
-      "photo": require('../../assets/offlineData/lostandfound/UtkalBalasharmCWCcontrolRoom.jpeg')
-    },
+    // {
+    //   "id": "1",
+    //   "locationname": "Lions Gate",
+    //   "lat": "19.804543563698207",
+    //   "long": "85.81930583037438",
+    //   "photo": require('../../assets/offlineData/lostandfound/LionsGate.jpeg')
+    // },
+    // {
+    //   "id": "2",
+    //   "locationname": "Gundicha Ghara Muktaash Rangamanch",
+    //   "lat": "19.81593451772561",
+    //   "long": "85.83876570554955",
+    //   "photo": require('../../assets/offlineData/lostandfound/GundichaGharaMuktaashRangamanch.jpeg')
+    // },
+    // {
+    //   "id": "3",
+    //   "locationname": "Jagannatha Ballav Matha",
+    //   "lat": "19.80988059975975",
+    //   "long": "85.82438446767046",
+    //   "photo": require('../../assets/offlineData/lostandfound/JagannathaBallavMatha.jpeg')
+    // },
+    // {
+    //   "id": "4",
+    //   "locationname": "Balagandi Chack",
+    //   "lat": "19.8130796272601",
+    //   "long": "85.8301243062821",
+    //   "photo": require('../../assets/offlineData/lostandfound/BalagandiChack.jpeg')
+    // },
+    // {
+    //   "id": "5",
+    //   "locationname": "Badasankha Chack",
+    //   "lat": "19.814054397780385",
+    //   "long": "85.83284977285376",
+    //   "photo": require('../../assets/offlineData/lostandfound/BadasankhaChack.jpeg')
+    // },
+    // {
+    //   "id": "6",
+    //   "locationname": "Talabania Parking",
+    //   "lat": "19.81086780917331",
+    //   "long": "85.84687364164495",
+    //   "photo": require('../../assets/offlineData/lostandfound/TalabaniaParking.jpeg')
+    // },
+    // {
+    //   "id": "7",
+    //   "locationname": "Malatipata Pur Parking",
+    //   "lat": "19.865748024997256",
+    //   "long": "85.83044080050104",
+    //   "photo": require('../../assets/offlineData/lostandfound/MalatipataPurParking.jpeg')
+    // },
+    // {
+    //   "id": "8",
+    //   "locationname": "Digabareni Chack",
+    //   "lat": "19.795971198786614",
+    //   "long": "85.82568939976444",
+    //   "photo": require('../../assets/offlineData/lostandfound/DigabareniChack.jpeg')
+    // },
+    // {
+    //   "id": "9",
+    //   "locationname": "Panthanivas",
+    //   "lat": "19.798644635864633",
+    //   "long": "85.83215785723448",
+    //   "photo": require('../../assets/offlineData/lostandfound/Panthanivas.jpeg')
+    // },
+    // {
+    //   "id": "10",
+    //   "locationname": "Subas Bose Chack, Near Tourist Office",
+    //   "lat": "19.799860639032833",
+    //   "long": "85.8314976791313",
+    //   "photo": require('../../assets/offlineData/lostandfound/SubasBoseChackNearTouristOffice.jpeg')
+    // },
+    // {
+    //   "id": "11",
+    //   "locationname": "Shree Danda",
+    //   "lat": "19.81185481171331",
+    //   "long": "85.82242502871516",
+    //   "photo": require('../../assets/offlineData/lostandfound/ShreeDanda.jpeg')
+    // },
+    // {
+    //   "id": "12",
+    //   "locationname": "Utkal Balasharm CWC control Room",
+    //   "lat": "19.81354182174009",
+    //   "long": "85.82708392075733",
+    //   "photo": require('../../assets/offlineData/lostandfound/UtkalBalasharmCWCcontrolRoom.jpeg')
+    // },
     {
       "id": "14",
       "locationname": "Singhadwara Police Station",
@@ -116,90 +116,90 @@ const Index = () => {
       "long": "85.81911426522505",
       "photo": require('../../assets/offlineData/lostandfound/SinghadwaraInformationCenter.jpeg')
     },
-    {
-      "id": "1",
-      "locationname": "ସିଂହଦ୍ଵାର",
-      "lat": "19.804543563698207",
-      "long": "85.81930583037438",
-      "photo": require('../../assets/offlineData/lostandfound/LionsGate.jpeg')
-    },
-    {
-      "id": "2",
-      "locationname": "ଗୁଣ୍ଡିଚା ଘର ମୁକ୍ତାକାଶ ରଙ୍ଗମଞ୍ଚ",
-      "lat": "19.81593451772561",
-      "long": "85.83876570554955",
-      "photo": require('../../assets/offlineData/lostandfound/GundichaGharaMuktaashRangamanch.jpeg')
-    },
-    {
-      "id": "3",
-      "locationname": "ଜଗନ୍ନାଥ ବଲ୍ଲଭ ମଠ",
-      "lat": "19.80988059975975",
-      "long": "85.82438446767046",
-      "photo": require('../../assets/offlineData/lostandfound/JagannathaBallavMatha.jpeg')
-    },
-    {
-      "id": "4",
-      "locationname": "ବଳଗଣ୍ଡି ଛକ",
-      "lat": "19.8130796272601",
-      "long": "85.8301243062821",
-      "photo": require('../../assets/offlineData/lostandfound/BalagandiChack.jpeg')
-    },
-    {
-      "id": "5",
-      "locationname": "ବଡଶଙ୍ଖ ଛକ",
-      "lat": "19.814054397780385",
-      "long": "85.83284977285376",
-      "photo": require('../../assets/offlineData/lostandfound/BadasankhaChack.jpeg')
-    },
-    {
-      "id": "6",
-      "locationname": "ତାଳବଣିଆ ପାର୍କିଂ",
-      "lat": "19.81086780917331",
-      "long": "85.84687364164495",
-      "photo": require('../../assets/offlineData/lostandfound/TalabaniaParking.jpeg')
-    },
-    {
-      "id": "7",
-      "locationname": "ମାଳତିପାଟ ପୁର ପାର୍କିଂ",
-      "lat": "19.865748024997256",
-      "long": "85.83044080050104",
-      "photo": require('../../assets/offlineData/lostandfound/MalatipataPurParking.jpeg')
-    },
-    {
-      "id": "8",
-      "locationname": "ଦିଗବାରେଣୀ ଛକ",
-      "lat": "19.795971198786614",
-      "long": "85.82568939976444",
-      "photo": require('../../assets/offlineData/lostandfound/DigabareniChack.jpeg')
-    },
-    {
-      "id": "9",
-      "locationname": "ପାନ୍ଥନିବାସ",
-      "lat": "19.798644635864633",
-      "long": "85.83215785723448",
-      "photo": require('../../assets/offlineData/lostandfound/Panthanivas.jpeg')
-    },
-    {
-      "id": "10",
-      "locationname": "ସୁବାଷ ବୋଷ ଛକ , ଟୁରିଷ୍ଟ ଅଫିସ ପାଖ",
-      "lat": "19.799860639032833",
-      "long": "85.8314976791313",
-      "photo": require('../../assets/offlineData/lostandfound/SubasBoseChackNearTouristOffice.jpeg')
-    },
-    {
-      "id": "11",
-      "locationname": "ଶ୍ରୀଦାଣ୍ଡ",
-      "lat": "19.81185481171331",
-      "long": "85.82242502871516",
-      "photo": require('../../assets/offlineData/lostandfound/ShreeDanda.jpeg')
-    },
-    {
-      "id": "12",
-      "locationname": "ଉତ୍କଳ ବାଳଶ୍ରମ",
-      "lat": "19.81354182174009",
-      "long": "85.82708392075733",
-      "photo": require('../../assets/offlineData/lostandfound/UtkalBalasharmCWCcontrolRoom.jpeg')
-    },
+    // {
+    //   "id": "1",
+    //   "locationname": "ସିଂହଦ୍ଵାର",
+    //   "lat": "19.804543563698207",
+    //   "long": "85.81930583037438",
+    //   "photo": require('../../assets/offlineData/lostandfound/LionsGate.jpeg')
+    // },
+    // {
+    //   "id": "2",
+    //   "locationname": "ଗୁଣ୍ଡିଚା ଘର ମୁକ୍ତାକାଶ ରଙ୍ଗମଞ୍ଚ",
+    //   "lat": "19.81593451772561",
+    //   "long": "85.83876570554955",
+    //   "photo": require('../../assets/offlineData/lostandfound/GundichaGharaMuktaashRangamanch.jpeg')
+    // },
+    // {
+    //   "id": "3",
+    //   "locationname": "ଜଗନ୍ନାଥ ବଲ୍ଲଭ ମଠ",
+    //   "lat": "19.80988059975975",
+    //   "long": "85.82438446767046",
+    //   "photo": require('../../assets/offlineData/lostandfound/JagannathaBallavMatha.jpeg')
+    // },
+    // {
+    //   "id": "4",
+    //   "locationname": "ବଳଗଣ୍ଡି ଛକ",
+    //   "lat": "19.8130796272601",
+    //   "long": "85.8301243062821",
+    //   "photo": require('../../assets/offlineData/lostandfound/BalagandiChack.jpeg')
+    // },
+    // {
+    //   "id": "5",
+    //   "locationname": "ବଡଶଙ୍ଖ ଛକ",
+    //   "lat": "19.814054397780385",
+    //   "long": "85.83284977285376",
+    //   "photo": require('../../assets/offlineData/lostandfound/BadasankhaChack.jpeg')
+    // },
+    // {
+    //   "id": "6",
+    //   "locationname": "ତାଳବଣିଆ ପାର୍କିଂ",
+    //   "lat": "19.81086780917331",
+    //   "long": "85.84687364164495",
+    //   "photo": require('../../assets/offlineData/lostandfound/TalabaniaParking.jpeg')
+    // },
+    // {
+    //   "id": "7",
+    //   "locationname": "ମାଳତିପାଟ ପୁର ପାର୍କିଂ",
+    //   "lat": "19.865748024997256",
+    //   "long": "85.83044080050104",
+    //   "photo": require('../../assets/offlineData/lostandfound/MalatipataPurParking.jpeg')
+    // },
+    // {
+    //   "id": "8",
+    //   "locationname": "ଦିଗବାରେଣୀ ଛକ",
+    //   "lat": "19.795971198786614",
+    //   "long": "85.82568939976444",
+    //   "photo": require('../../assets/offlineData/lostandfound/DigabareniChack.jpeg')
+    // },
+    // {
+    //   "id": "9",
+    //   "locationname": "ପାନ୍ଥନିବାସ",
+    //   "lat": "19.798644635864633",
+    //   "long": "85.83215785723448",
+    //   "photo": require('../../assets/offlineData/lostandfound/Panthanivas.jpeg')
+    // },
+    // {
+    //   "id": "10",
+    //   "locationname": "ସୁବାଷ ବୋଷ ଛକ , ଟୁରିଷ୍ଟ ଅଫିସ ପାଖ",
+    //   "lat": "19.799860639032833",
+    //   "long": "85.8314976791313",
+    //   "photo": require('../../assets/offlineData/lostandfound/SubasBoseChackNearTouristOffice.jpeg')
+    // },
+    // {
+    //   "id": "11",
+    //   "locationname": "ଶ୍ରୀଦାଣ୍ଡ",
+    //   "lat": "19.81185481171331",
+    //   "long": "85.82242502871516",
+    //   "photo": require('../../assets/offlineData/lostandfound/ShreeDanda.jpeg')
+    // },
+    // {
+    //   "id": "12",
+    //   "locationname": "ଉତ୍କଳ ବାଳଶ୍ରମ",
+    //   "lat": "19.81354182174009",
+    //   "long": "85.82708392075733",
+    //   "photo": require('../../assets/offlineData/lostandfound/UtkalBalasharmCWCcontrolRoom.jpeg')
+    // },
     {
       "id": "14",
       "locationname": "ସିଂହଦ୍ଵାର ପୋଲିସ ଥାନା ",
