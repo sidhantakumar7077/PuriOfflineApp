@@ -14,7 +14,8 @@ import DrawerModal from "../../Component/DrawerModal";
 import Video from 'react-native-video';
 
 const { width } = Dimensions.get('window');
-const { height } = Dimensions.get('window');
+// const { height } = Dimensions.get('window');
+const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 const Index = () => {
 
@@ -1362,35 +1363,14 @@ const Index = () => {
         getNoticeForToday();
     }, []);
 
-    const renderItem = ({ item }) => {
-        // Choose text based on language
-        const noticeText =
+    // ✅ Check if any notice has an image
+    const hasImageNotice = Array.isArray(notices) && notices.some((n) => {
+        const img =
             selectedLanguage === 'Odia'
-                ? item.notice_name
-                : item.notice_name_english;
-
-        // Build full image URL if backend only returns path
-        const imageSource =
-            selectedLanguage === 'Odia'
-                ? item.odia_notice_photo
-                : item.english_notice_photo;
-
-        return (
-            <View style={styles.noticeItem}>
-                {/* Image (only if exists) */}
-                {imageSource && (
-                    <Image
-                        source={{ uri: imageSource }}
-                        style={styles.noticeImage}
-                        resizeMode="contain"
-                    />
-                )}
-
-                {/* Text */}
-                <Text style={styles.noticeText}>{noticeText}</Text>
-            </View>
-        );
-    };
+                ? n?.odia_notice_photo
+                : n?.english_notice_photo;
+        return !!img;
+    });
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
@@ -2736,20 +2716,20 @@ const Index = () => {
                     style={{
                         flex: 1,
                         backgroundColor: 'rgba(0,0,0,0.4)',
-                        justifyContent: 'center',
+                        justifyContent: hasImageNotice ? 'flex-start' : 'center',
                         alignItems: 'center',
-                        paddingHorizontal: 20,
+                        paddingHorizontal: hasImageNotice ? 0 : 20,
                     }}
                 >
                     <View
                         style={{
                             width: '100%',
-                            maxWidth: 360,
-                            maxHeight: '80%',
+                            maxHeight: hasImageNotice ? '100%' : '90%',
+                            flex: hasImageNotice ? 1 : 0,
                             backgroundColor: '#fff',
-                            borderRadius: 16,
-                            paddingVertical: 25,
-                            paddingHorizontal: 20,
+                            borderRadius: hasImageNotice ? 0 : 16,
+                            paddingVertical: hasImageNotice ? 10 : 25,
+                            paddingHorizontal: hasImageNotice ? 0 : 20,
                             elevation: 12,
                             shadowColor: '#000',
                             shadowOpacity: 0.25,
@@ -2758,21 +2738,119 @@ const Index = () => {
                         }}
                     >
                         {/* Title */}
-                        <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#341551', marginBottom: 15, textAlign: 'center' }}>{selectedLanguage === 'Odia' ? "ସୂଚନା" : "Notices"}</Text>
+                        <Text
+                            style={{
+                                fontSize: 22,
+                                fontWeight: 'bold',
+                                color: '#341551',
+                                marginBottom: 10,
+                                textAlign: 'center',
+                            }}
+                        >
+                            {selectedLanguage === 'Odia' ? 'ସୂଚନା' : 'Notices'}
+                        </Text>
 
                         {/* Notice List */}
                         <FlatList
                             data={notices}
                             keyExtractor={(item) => item.id.toString()}
-                            renderItem={renderItem}
+                            renderItem={({ item }) => {
+                                const noticeText =
+                                    selectedLanguage === 'Odia'
+                                        ? item.notice_name
+                                        : item.notice_name_english;
+
+                                const imageSource =
+                                    selectedLanguage === 'Odia'
+                                        ? item.odia_notice_photo
+                                        : item.english_notice_photo;
+
+                                const hasImage = !!imageSource;
+
+                                // 🔥 If there is an image AND any notice has image → full image in modal
+                                if (hasImageNotice && hasImage) {
+                                    return (
+                                        <View
+                                            style={{
+                                                marginBottom: 10,
+                                                flex: 1,
+                                            }}
+                                        >
+                                            <Image
+                                                source={{ uri: imageSource }}
+                                                style={{
+                                                    width: '100%',
+                                                    height: SCREEN_HEIGHT * 0.7, // big, almost full modal
+                                                }}
+                                                resizeMode="contain"
+                                            />
+
+                                            <View style={{ paddingHorizontal: 16, paddingVertical: 10 }}>
+                                                <Text
+                                                    style={{
+                                                        fontSize: 15,
+                                                        color: '#341551',
+                                                        textAlign: 'left',
+                                                        lineHeight: 22,
+                                                    }}
+                                                >
+                                                    {noticeText}
+                                                </Text>
+                                            </View>
+                                        </View>
+                                    );
+                                }
+
+                                // 🟣 No image case → your old card style
+                                return (
+                                    <View
+                                        style={{
+                                            marginBottom: 12,
+                                            borderRadius: 10,
+                                            backgroundColor: '#f5f3ff',
+                                            padding: 10,
+                                            minHeight: 250,
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize: 15,
+                                                color: '#341551',
+                                                textAlign: 'center',
+                                                lineHeight: 22,
+                                            }}
+                                        >
+                                            {noticeText}
+                                        </Text>
+                                    </View>
+                                );
+                            }}
                             ListEmptyComponent={
-                                <Text style={{ textAlign: 'center', color: '#999', marginTop: 20, fontSize: 14 }}>
-                                    No notices for today.
-                                </Text>
+                                <View
+                                    style={{
+                                        flex: 1,
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        paddingTop: 20,
+                                    }}
+                                >
+                                    <Text
+                                        style={{
+                                            textAlign: 'center',
+                                            color: '#999',
+                                            fontSize: 14,
+                                        }}
+                                    >
+                                        No notices for today.
+                                    </Text>
+                                </View>
                             }
                             contentContainerStyle={{
                                 paddingBottom: 10,
                                 paddingTop: 5,
+                                flexGrow: 1,
                             }}
                             showsVerticalScrollIndicator={false}
                         />
@@ -2782,10 +2860,22 @@ const Index = () => {
                             colors={['#FFA726', '#F06292']}
                             start={{ x: 0, y: 0 }}
                             end={{ x: 1, y: 0 }}
-                            style={{ marginTop: 20, backgroundColor: '#341551', borderRadius: 10 }}
+                            style={{
+                                marginTop: 10,
+                                marginHorizontal: hasImageNotice ? 16 : 0,
+                                borderRadius: 10,
+                            }}
                         >
-                            <TouchableOpacity style={{ alignItems: 'center', paddingVertical: 13 }} onPress={() => setNoticeModalVisible(false)} activeOpacity={0.8}>
-                                <Text style={{ color: '#fff', fontWeight: 'bold', fontSize: 16 }}>Close</Text>
+                            <TouchableOpacity
+                                style={{ alignItems: 'center', paddingVertical: 13 }}
+                                onPress={() => setNoticeModalVisible(false)}
+                                activeOpacity={0.8}
+                            >
+                                <Text
+                                    style={{ color: '#fff', fontWeight: 'bold', fontSize: 16 }}
+                                >
+                                    Close
+                                </Text>
                             </TouchableOpacity>
                         </LinearGradient>
                     </View>
