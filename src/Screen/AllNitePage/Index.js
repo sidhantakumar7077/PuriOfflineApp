@@ -294,7 +294,7 @@ const Index = () => {
                 </View>
 
                 {/* Tab section (Previous Day Niti & Today Niti) */}
-                <View style={styles.tabContainer}>
+                {/* <View style={styles.tabContainer}>
                     <View style={{ flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: '#ddd' }}>
                         <TouchableOpacity
                             style={[styles.tabItem, selectedTab === 'today' && { borderBottomWidth: 2, borderBottomColor: '#341551' }]}
@@ -313,10 +313,10 @@ const Index = () => {
                             </Text>
                         </TouchableOpacity>
                     </View>
-                </View>
+                </View> */}
 
                 {/* Lists */}
-                {selectedTab === 'previous' ? (
+                {/* {selectedTab === 'previous' ? (
                     <>
                         {prevIsLoading ? (
                             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 150 }}>
@@ -380,7 +380,38 @@ const Index = () => {
                             <View style={{ marginTop: 20 }}>{renderNitiList(allNiti)}</View>
                         )}
                     </>
-                )}
+                )} */}
+                <>
+                    {isLoading ? (
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 150 }}>
+                            <Text style={{ fontSize: 16, color: '#999', fontFamily: 'FiraSans-Regular' }}>Loading...</Text>
+                        </View>
+                    ) : allNiti.length === 0 ? (
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 150 }}>
+                            <Text
+                                style={{
+                                    fontSize: 16,
+                                    color: '#999',
+                                    fontFamily: 'FiraSans-Regular',
+                                    width: '90%',
+                                    textAlign: 'center',
+                                }}
+                            >
+                                {selectedLanguage === 'Odia'
+                                    ? 'ଇଣ୍ଟରନେଟ୍ କନେକ୍ଶନ ଉପଲବ୍ଧ ନାହିଁ, ଦୟାକରି ଲାଇଭ ତଥ୍ୟ ପାଇଁ ଇଣ୍ଟରନେଟ୍ କନେକ୍ଟ କରନ୍ତୁ।'
+                                    : 'Internet connection is not available please connect to internet for live data.'}
+                            </Text>
+                            <TouchableOpacity
+                                onPress={onRefresh}
+                                style={{ marginTop: 10, backgroundColor: '#341551', paddingVertical: 5, paddingHorizontal: 10, borderRadius: 5 }}
+                            >
+                                <Text style={{ color: '#fff', fontFamily: 'FiraSans-Regular' }}>Refresh</Text>
+                            </TouchableOpacity>
+                        </View>
+                    ) : (
+                        <View style={{ marginTop: 20 }}>{renderNitiList(allNiti)}</View>
+                    )}
+                </>
             </ScrollView>
 
             {/* Niti Description Modal */}
