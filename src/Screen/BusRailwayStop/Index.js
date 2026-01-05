@@ -10,6 +10,26 @@ const Index = (props) => {
 
     const odia_data = [
         {
+            "id": 13,
+            "language": "Odia",
+            "temple_id": "TEMPLE25402",
+            "commute_type": "bus",
+            "name": "ପୁରୀ ବସଷ୍ଟାଣ୍ଡ  ",
+            "photo": require('../../assets/offlineData/busrailway/puriBusStand.png'),
+            "google_map_link": "https://maps.app.goo.gl/YjmPCGRs1kGjPwi58",
+            "distance_from_temple": "2.5 Km",
+            "landmark": "ଗୁଣ୍ଡିଚା ମନ୍ଦିର ପାଖରେ",
+            "pincode": "୭୫୨୦୦୧",
+            "city_village": "ପୁରୀ",
+            "district": "ପୁରୀ",
+            "state": "ଓଡ଼ିଶା",
+            "country": "India",
+            "description": "Bus Stand",
+            "status": "active",
+            "created_at": "2025-04-01T08:04:49.000000Z",
+            "updated_at": "2025-05-27T05:52:13.000000Z"
+        },
+        {
             "id": 6,
             "language": "Odia",
             "temple_id": "TEMPLE25402",
@@ -112,6 +132,26 @@ const Index = (props) => {
     ];
 
     const english_data = [
+        {
+            "id": 14,
+            "language": "English",
+            "temple_id": "TEMPLE25402",
+            "commute_type": "bus",
+            "name": "Puri Bus Stand",
+            "photo": require('../../assets/offlineData/busrailway/puriBusStand.png'),
+            "google_map_link": "https://maps.app.goo.gl/YjmPCGRs1kGjPwi58",
+            "distance_from_temple": "2.5 Km",
+            "landmark": "Near Gundicha Temple",
+            "pincode": "752001",
+            "city_village": "Puri",
+            "district": "Puri",
+            "state": "Odisha",
+            "country": "India",
+            "description": "Bus Stand",
+            "status": "active",
+            "created_at": "2025-04-01T08:04:49.000000Z",
+            "updated_at": "2025-04-27T10:04:01.000000Z"
+        },
         {
             "id": 1,
             "language": "English",
