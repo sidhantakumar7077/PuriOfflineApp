@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { View, ScrollView, Text, ImageBackground, TouchableOpacity, StyleSheet, Image, FlatList, Dimensions, SafeAreaView, Linking, Modal, ActivityIndicator, RefreshControl, Animated, Easing, BackHandler, ToastAndroid } from "react-native";
+import { View, ScrollView, Text, ImageBackground, TouchableOpacity, StyleSheet, Image, FlatList, Dimensions, SafeAreaView, Linking, Alert, Modal, ActivityIndicator, RefreshControl, Animated, Easing, BackHandler, ToastAndroid } from "react-native";
 import { useNavigation, useIsFocused, useFocusEffect } from '@react-navigation/native'
 import LinearGradient from "react-native-linear-gradient";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -7,7 +7,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AntDesign from "react-native-vector-icons/AntDesign";
-import Swiper from 'react-native-swiper';
+// import Swiper from 'react-native-swiper';
 import { base_url } from "../../../App";
 import moment from "moment";
 import DrawerModal from "../../Component/DrawerModal";
@@ -1334,6 +1334,16 @@ const Index = () => {
         }
     };
 
+    const openDonationUrl = async (rawUrl) => {
+        const url = /^https?:\/\//i.test(rawUrl) ? rawUrl : `https://${rawUrl}`;
+
+        try {
+            await Linking.openURL(url);
+        } catch (e) {
+            Alert.alert('Unable to open link', url);
+        }
+    };
+
     const [rathaYatraSectionActive, setRathaYatraSectionActive] = useState(false);
 
     const getRathaYatraSectionStatus = async () => {
@@ -2624,7 +2634,12 @@ const Index = () => {
                                 ଆପଣ ଶ୍ରୀ ଜଗନ୍ନାଥ ମନ୍ଦିରର ସରକାରୀ ୱେବସାଇଟ୍ ମାଧ୍ୟମରେ ଅନଲାଇନରେ ଦାନ କରିପାରିବେ।{"\n\n"}
 
                                 <Text style={{ fontWeight: '700' }}>ଦାନ ବିଷୟରେ ଅଧିକ ସୂଚନା ପାଇଁ, ଦୟାକରି ଯୋଗାଯୋଗ କରନ୍ତୁ:{"\n\n"}</Text>
-                                www.shreejagannatha.in{"\n"}
+                                {/* Clickable Website */}
+                                <Text onPress={() => openDonationUrl('https://www.shreejagannatha.in')}
+                                    style={{ color: '#1D4ED8', textDecorationLine: 'underline', fontWeight: '600' }}>
+                                    www.shreejagannatha.in
+                                </Text>
+                                {"\n"}
                                 ଇମେଲ୍: jagannatha.or@nic.in{"\n"}
                                 ଫୋନ୍ : (୦୬୭୫୨) ୨୫୨୬୦୧{"\n\n"}
 
@@ -2650,7 +2665,12 @@ const Index = () => {
                                 Shree Jagannath Temple official website.{"\n\n"}
 
                                 <Text style={{ fontWeight: '700' }}>For more information about donations, please contact:{"\n\n"}</Text>
-                                www.shreejagannatha.in{"\n"}
+                                {/* Clickable Website */}
+                                <Text onPress={() => openDonationUrl('https://www.shreejagannatha.in')}
+                                    style={{ color: '#1D4ED8', textDecorationLine: 'underline', fontWeight: '600' }}>
+                                    www.shreejagannatha.in
+                                </Text>
+                                {'\n'}
                                 📧 Email: jagannatha.or@nic.in{"\n"}
                                 📞 Ph: (06752) 252601{"\n\n"}
 
